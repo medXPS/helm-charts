@@ -1,0 +1,152 @@
+{{- $replicas := .Values.replicaCount | int -}}
+{{- $fullname := include "proxysql.fullname" . -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "proxysql.fullname" . }}-config
+data: 
+  proxysql.cnf: |
+    datadir="/var/lib/proxysql"
+
+    admin_variables=
+    {
+      admin_credentials="admin:{{ .Values.proxysql.admin.adminPassword }};{{ .Values.proxysql.admin.clusterAdminUser }}:{{ .Values.proxysql.admin.clusterAdminPassword }}"
+      mysql_ifaces="0.0.0.0:6032"
+      cluster_username="{{ .Values.proxysql.admin.clusterAdminUser }}"
+      cluster_password="{{ .Values.proxysql.admin.clusterAdminPassword }}"
+      cluster_check_interval_ms=200
+      cluster_check_status_frequency=100
+      cluster_mysql_query_rules_save_to_disk=true
+      cluster_mysql_servers_save_to_disk=true
+      cluster_mysql_users_save_to_disk=true
+      cluster_proxysql_servers_save_to_disk=true
+      cluster_mysql_query_rules_diffs_before_sync=3
+      cluster_mysql_servers_diffs_before_sync=3
+      cluster_mysql_users_diffs_before_sync=3
+      cluster_proxysql_servers_diffs_before_sync=3
+    }
+
+    mysql_variables=
+    {
+      threads=2
+      max_connections=6000
+      default_query_delay=0
+      default_query_timeout=36000000
+      have_compress=true
+      poll_timeout=2000
+      interfaces="0.0.0.0:6033"
+      default_schema="information_schema"
+      stacksize=1048576
+      server_version="8.0.20"
+      connect_timeout_server=3000
+      monitor_username="monitor"
+      monitor_password="monitor"
+      monitor_history=600000
+      monitor_connect_interval=5000
+      monitor_ping_interval=2000
+      monitor_read_only_interval=1500
+      monitor_read_only_timeout=500
+      ping_interval_server_msec=15000
+      ping_timeout_server=500
+      commands_stats=true
+      sessions_sort=true
+      connect_retries_on_failure=10
+    }
+
+    # defines all the MySQL users
+    mysql_users:
+    (
+      {{ range $i, $e := .Values.proxysql.mysql.users -}}
+      { username = "{{ $e.username }}" , password = "{{ $e.password }}" , default_hostgroup = 0 , active = 1 },
+      {{- end}}
+
+      { username = "{{ $.Values.proxysql.mysql.monitoring.username }}" , password = "{{ $.Values.proxysql.mysql.monitoring.password }}" , default_hostgroup = 0 , active = 1 }
+    )
+
+    proxysql_servers =
+    (
+      {{ range $i, $e := until $replicas }}
+      {
+        hostname="{{ $fullname }}-{{ $e }}.{{ $fullname }}-headless"
+        port=6032
+        weight={{ $i }}
+        comment="{{ $fullname }}-{{ $e }}.{{ $fullname }}"
+      }{{ if lt $i (sub $replicas 1) }},{{ end }}
+      {{ end }}
+    )
+
+    {{ .Values.proxysql.customConfiguration | default "" | nindent 4 }}
+
+    scheduler=
+    (
+      {
+        id=1
+        active=1
+        interval_ms=5000
+        filename="/bin/bash"
+        arg1="/usr/local/sbin/config-watcher.sh"
+        arg2=""
+        arg3=""
+        arg4=""
+        arg5=""
+      }
+    )
+
+  readiness.sh: |
+    #!/bin/bash
+    set -e
+
+    # this needs to be smarter. It should be able to tell if the container is running
+    # and accepting traffic
+    if [ ! -f /var/lib/proxysql/.running ]; then
+      exit 1
+    fi
+    exit 0
+
+  liveness.sh: |
+    #!/bin/bash
+    set -e
+
+    mbin="/usr/bin/mysql"
+    lcon="-h127.0.0.1 -P6032 -uadmin -p{{ .Values.proxysql.admin.adminPassword }}"
+    opts="-NB"
+
+    proxysql_peers_available=$($mbin $lcon $opts -e"select count(*) from runtime_proxysql_servers")
+  
+    if [[ $proxysql_peers_available -eq {{ $replicas }} ]];
+    then
+      echo "ProxySQL peers configured"
+      exit 0
+    else
+      echo "ProxySQL peers not yet configured or failed"
+      exit 1
+    fi
+
+  drain.sh: |
+    #!/bin/bash
+    CONNECTIONS=$(mysqladmin processlist -P6032 -h127.0.0.1 -uadmin -p{{ .Values.proxysql.admin.adminPassword }} | grep [0-9] -c)
+    echo "${CONNECTIONS}"
+
+    while [[ ${CONNECTIONS} -gt 0 ]]; do
+      sleep 5
+      CONNECTIONS=$(mysqladmin processlist -P6032 -h127.0.0.1 -uadmin -p{{ .Values.proxysql.admin.adminPassword }} | grep [0-9] -c)
+      echo "${CONNECTIONS}"
+    
+    done
+
+    exit 0
+
+  config-watcher.sh: |
+    #!/bin/bash
+
+    if [ ! -f /var/lib/proxysql/.running ]; then
+      /usr/bin/mysql -uadmin -p{{ .Values.proxysql.admin.adminPassword }} -h127.0.0.1 -P6032 -e"
+        LOAD MYSQL QUERY RULES TO RUNTIME;
+        LOAD MYSQL SERVERS TO RUNTIME;
+        LOAD MYSQL USERS TO RUNTIME;
+      "
+      touch /var/lib/proxysql/.running
+    fi
+
+    exit 0
+
