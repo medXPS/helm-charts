@@ -3,12 +3,12 @@ entries:
   proxysql:
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2024-05-23T16:16:36.494678659Z"
+    created: "2024-05-23T16:19:29.709174661Z"
     description: A Helm chart for installing ProxySQL into Kubernetes as a cluster
-    digest: 2377c8fc27078d650703d84c39742377cb29215f51a18a5559a6a74667d51be0
+    digest: 4ab59995284f9e8af0312615e7c9c3c16727dd2e6b6247043b3771ee31439353
     name: proxysql
     type: application
     urls:
     - https://medXPS.github.io/helm-charts/proxysql-0.1.0.tgz
     version: 0.1.0
-generated: "2024-05-23T16:16:36.493875278Z"
+generated: "2024-05-23T16:19:29.707670708Z"
