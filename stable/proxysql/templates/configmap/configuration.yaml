@@ -60,7 +60,7 @@ data:
       { username = "{{ $e.username }}" , password = "{{ $e.password }}" , default_hostgroup = 0 , active = 1 },
       {{- end}}
 
-      { username = "{{ $.Values.proxysql.mysql.monitoring.username }}" , password = "{{ $.Values.proxysql.mysql.monitoring.password }}" , default_hostgroup = 0 , active = 1 }
+      # { username = "{{ $.Values.proxysql.mysql.monitoring.username }}" , password = "{{ $.Values.proxysql.mysql.monitoring.password }}" , default_hostgroup = 0 , active = 1 }
     )
 
     proxysql_servers =
@@ -77,20 +77,20 @@ data:
 
     {{ .Values.proxysql.customConfiguration | default "" | nindent 4 }}
 
-    scheduler=
-    (
-      {
-        id=1
-        active=1
-        interval_ms=5000
-        filename="/bin/bash"
-        arg1="/usr/local/sbin/config-watcher.sh"
-        arg2=""
-        arg3=""
-        arg4=""
-        arg5=""
-      }
-    )
+    # scheduler=
+    # (
+    #   {
+    #     id=1
+    #     active=1
+    #     interval_ms=5000
+    #     filename="/bin/bash"
+    #     arg1="/usr/local/sbin/config-watcher.sh"
+    #     arg2=""
+    #     arg3=""
+    #     arg4=""
+    #     arg5=""
+    #   }
+    # )
 
   readiness.sh: |
     #!/bin/bash

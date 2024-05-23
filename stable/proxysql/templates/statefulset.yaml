@@ -42,12 +42,12 @@ spec:
             - name: controller
               containerPort: 6032
               protocol: TCP
-          livenessProbe:
-            exec:
-              command: ["/usr/local/sbin/liveness.sh"]
-          readinessProbe:
-            exec:
-              command: ["/usr/local/sbin/readiness.sh"]
+          # livenessProbe:
+          #   exec:
+          #     command: ["/usr/local/sbin/liveness.sh"]
+          # readinessProbe:
+          #   exec:
+          #     command: ["/usr/local/sbin/readiness.sh"]
           lifecycle:
             preStop:
               exec:
@@ -61,15 +61,15 @@ spec:
             - name: {{ include "proxysql.fullname" . }}-config
               mountPath: /usr/local/sbin/config-watcher.sh
               subPath: config-watcher.sh
-            - name: {{ include "proxysql.fullname" . }}-config
-              mountPath: /usr/local/sbin/liveness.sh
-              subPath: liveness.sh              
-            - name: {{ include "proxysql.fullname" . }}-config
-              mountPath: /usr/local/sbin/readiness.sh
-              subPath: readiness.sh              
-            - name: {{ include "proxysql.fullname" . }}-config
-              mountPath: /usr/local/sbin/drain.sh
-              subPath: drain.sh              
+            # - name: {{ include "proxysql.fullname" . }}-config
+            #   mountPath: /usr/local/sbin/liveness.sh
+            #   subPath: liveness.sh              
+            # - name: {{ include "proxysql.fullname" . }}-config
+            #   mountPath: /usr/local/sbin/readiness.sh
+            #   subPath: readiness.sh              
+            # - name: {{ include "proxysql.fullname" . }}-config
+            #   mountPath: /usr/local/sbin/drain.sh
+            #   subPath: drain.sh              
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
