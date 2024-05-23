@@ -39,9 +39,9 @@ spec:
             - name: proxysql
               containerPort: 6033
               protocol: TCP
-            - name: controller
-              containerPort: 6032
-              protocol: TCP
+            # - name: controller
+            #   containerPort: 6032
+            #   protocol: TCP
           # livenessProbe:
           #   exec:
           #     command: ["/usr/local/sbin/liveness.sh"]
