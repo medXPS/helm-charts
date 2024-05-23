@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 # This should be at least 3
-replicaCount: 1
+replicaCount: 3
 
 image:
   repository: proxysql/proxysql
@@ -48,8 +48,8 @@ proxysql:
     # See https://proxysql.com/documentation/main-runtime/#mysql_users
     # and https://proxysql.com/documentation/Users-configuration/
     users:
-      - username: "SYS"
-        password: "Kube#adria#2024"
+      - username: "C##MONITOR"
+        password: "monitor"
 
   # Should ProxySQL configuration be backed by an actual volume?
   # If set to 'false' the configuration will be stored in an emptyDir
@@ -66,41 +66,41 @@ proxysql:
   # Define custom configuration values here. This configuration 
   # snippet will be appended to the proxy.cnf file.
   customConfiguration: |
-    # # Query Rules for Read/Write Split
-    # mysql_query_rules:
-    # (
-    #   {
-    #     rule_id=1
-    #     active=1
-    #     match_pattern="^(SELECT|WITH)"  # Match SELECT and CTEs
-    #     destination_hostgroup=1  # Send to reader group
-    #     apply=1
-    #   },
-    #   {
-    #     rule_id=2
-    #     active=1
-    #     match_pattern=".*"  # Catch-all for writes
-    #     destination_hostgroup=0  # Send to writer group
-    #     apply=1
-    #   }
-    # )
+    # Query Rules for Read/Write Split
+    mysql_query_rules:
+    (
+      {
+        rule_id=1
+        active=1
+        match_pattern="^(SELECT|WITH)"  # Match SELECT and CTEs
+        destination_hostgroup=1  # Send to reader group
+        apply=1
+      },
+      {
+        rule_id=2
+        active=1
+        match_pattern=".*"  # Catch-all for writes
+        destination_hostgroup=0  # Send to writer group
+        apply=1
+      }
+    )
 
-    # # Hostgroups for Writer (Primary) and Reader (Standby)
-    # mysql_servers:
-    # (
-    #   {
-    #     hostgroup_id=0  # Writer
-    #     hostname="adria-ora-sidb-primary"  # Primary SIDB Service
-    #     port=1521  # Oracle Listener Port
-    #     status="ONLINE"
-    #   },
-    #   {
-    #     hostgroup_id=1  # Reader
-    #     hostname="adria-ora-sidb-standby"  # Standby SIDB Service
-    #     port=1521
-    #     status="ONLINE"
-    #   }
-    # )
+    # Hostgroups for Writer (Primary) and Reader (Standby)
+    mysql_servers:
+    (
+      {
+        hostgroup_id=0  # Writer
+        hostname="adria-ora-sidb-primary.orao-ha.svc.cluster.local"  # Primary SIDB Service
+        port=1521  # Oracle Listener Port
+        status="ONLINE"
+      },
+      {
+        hostgroup_id=1  # Reader
+        hostname="adria-ora-sidb-standby.orao-ha.svc.cluster.local"  # Standby SIDB Service
+        port=1521
+        status="ONLINE"
+      }
+    )
     
 serviceAccount:
   # Specifies whether a service account should be created
