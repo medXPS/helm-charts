@@ -37,7 +37,7 @@ data:
       interfaces="0.0.0.0:6033"
       default_schema="information_schema"
       stacksize=1048576
-      server_version="21c"
+      server_version="8.0.20"
       connect_timeout_server=3000
       monitor_username="monitor"
       monitor_password="monitor"
@@ -60,72 +60,13 @@ data:
       { username = "{{ $e.username }}" , password = "{{ $e.password }}" , default_hostgroup = 0 , active = 1 },
       {{- end}}
 
-     
-    )
-    
-
-    proxysql_servers =
-    (
-      {{ range $i, $e := until $replicas }}
-      {
-        hostname="{{ $fullname }}-{{ $e }}.{{ $fullname }}-headless"
-        port=6032
-        weight={{ $i }}
-        comment="{{ $fullname }}-{{ $e }}.{{ $fullname }}"
-      }{{ if lt $i (sub $replicas 1) }},{{ end }}
-      {{ end }}
-    )
-
-    mysql_query_rules:
-    (
-      {
-        rule_id=1
-        active=1
-        match_pattern="^(SELECT|WITH)"  
-        destination_hostgroup=1  
-        apply=1
-      },
-      {
-        rule_id=2
-        active=1
-        match_pattern=".*" 
-        destination_hostgroup=0  
-        apply=1
-      }
+       { username = "{{ $.Values.proxysql.mysql.monitoring.username }}" , password = "{{ $.Values.proxysql.mysql.monitoring.password }}" , default_hostgroup = 0 , active = 1 }
     )
 
 
-    mysql_servers:
-    (
-      {
-        hostgroup_id=0 
-        hostname="adria-ora-sidb-primary.orao-ha.svc.cluster.local"
-        port=1521  # Oracle Listener Port
-        status="ONLINE"
-      },
-      {
-        hostgroup_id=1 
-        hostname="adria-ora-sidb-standby.orao-ha.svc.cluster.local"
-        port=1521
-        status="ONLINE"
-      }
-    )
-    #{{ .Values.proxysql.customConfiguration | default "" | nindent 4 }}
+    {{ .Values.proxysql.customConfiguration | default "" | nindent 4 }}
 
-    scheduler=
-    (
-      {
-        id=1
-        active=1
-        interval_ms=5000
-        filename="/bin/bash"
-        arg1="/usr/local/sbin/config-watcher.sh"
-        arg2=""
-        arg3=""
-        arg4=""
-        arg5=""
-      }
-    )
+
 
   readiness.sh: |
     #!/bin/bash
