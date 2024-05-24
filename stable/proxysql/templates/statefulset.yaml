@@ -42,16 +42,16 @@ spec:
             - name: controller
               containerPort: 6032
               protocol: TCP
-          # livenessProbe:
-          #   exec:
-          #     command: ["/usr/local/sbin/liveness.sh"]
-          # readinessProbe:
-          #   exec:
-          #     command: ["/usr/local/sbin/readiness.sh"]
-          # lifecycle:
-          #   preStop:
-          #     exec:
-          #       command: ["/usr/local/sbin/drain.sh"]
+          livenessProbe:
+            exec:
+              command: ["/usr/local/sbin/liveness.sh"]
+          readinessProbe:
+            exec:
+              command: ["/usr/local/sbin/readiness.sh"]
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/usr/local/sbin/drain.sh"]
           volumeMounts:
             - name: {{ include "proxysql.fullname" . }}-data
               mountPath: /var/lib/proxysql
