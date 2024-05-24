@@ -66,37 +66,37 @@ proxysql:
   # Define custom configuration values here. This configuration 
   # snippet will be appended to the proxy.cnf file.
   customConfiguration: |
-    # Query Rules for Read/Write Split
+  
     mysql_query_rules:
     (
       {
         rule_id=1
         active=1
-        match_pattern="^(SELECT|WITH)"  # Match SELECT and CTEs
-        destination_hostgroup=1  # Send to reader group
+        match_pattern="^(SELECT|WITH)"  
+        destination_hostgroup=1  
         apply=1
       },
       {
         rule_id=2
         active=1
-        match_pattern=".*"  # Catch-all for writes
-        destination_hostgroup=0  # Send to writer group
+        match_pattern=".*" 
+        destination_hostgroup=0  
         apply=1
       }
     )
 
-    # Hostgroups for Writer (Primary) and Reader (Standby)
+
     mysql_servers:
     (
       {
-        hostgroup_id=0  # Writer
-        hostname="adria-ora-sidb-primary.orao-ha.svc.cluster.local"  # Primary SIDB Service
+        hostgroup_id=0 
+        hostname="adria-ora-sidb-primary.orao-ha.svc.cluster.local"
         port=1521  # Oracle Listener Port
         status="ONLINE"
       },
       {
-        hostgroup_id=1  # Reader
-        hostname="adria-ora-sidb-standby.orao-ha.svc.cluster.local"  # Standby SIDB Service
+        hostgroup_id=1 
+        hostname="adria-ora-sidb-standby.orao-ha.svc.cluster.local"
         port=1521
         status="ONLINE"
       }
