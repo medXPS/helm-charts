@@ -5,7 +5,33 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-06-03T08:53:58.656504365Z"
+    created: "2024-06-03T15:06:21.927559863Z"
+    description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
+      on Kubernetes
+    digest: 287e2116b599472e893592e9250478b777f19e0620c1a03a6ece0722dd168385
+    home: https://github.com/medXPS/helm-charts
+    icon: https://icoretech.github.io/helm/charts/pgbouncer/logo.png
+    keywords:
+    - pgBouncer
+    - PostgreSQL
+    - Kubernetes
+    kubeVersion: '>= 1.20.0-0'
+    maintainers:
+    - email: m.ammaha@outlook.com
+      name: mohamed ammaha
+      url: https://github.com/medXPS
+    name: pgbouncer
+    sources:
+    - https://github.com/medXPS/helm-charts/tree/main/stable/pgbouncer
+    type: application
+    urls:
+    - https://medXPS.github.io/helm-charts/pgbouncer-2.2.6.tgz
+    version: 2.2.6
+  - annotations:
+      artifacthub.io/license: MIT
+    apiVersion: v2
+    appVersion: 1.22.1
+    created: "2024-06-03T15:06:21.924701274Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 1919764cf0c38ad81709b603e52bb34ab0319c91bd3357e36e6cc98716b35155
@@ -30,9 +56,9 @@ entries:
   proxysql:
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2024-06-03T08:53:58.658940968Z"
+    created: "2024-06-03T15:06:21.929736564Z"
     description: A Helm chart for installing ProxySQL into Kubernetes as a cluster
-    digest: f8a41db62394bb2f93ec73e0b712bcd83140714334f8753f93f723c8615f574b
+    digest: 427d7ccbdb62b1e68badde842a7ea8f94762feaff9eb20e1f1e0dafd53f6c715
     name: proxysql
     type: application
     urls:
@@ -40,7 +66,7 @@ entries:
     version: 1.3.4
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2024-06-03T08:53:58.658174836Z"
+    created: "2024-06-03T15:06:21.929185949Z"
     description: A Helm chart for installing ProxySQL into Kubernetes as a cluster
     digest: 324bf7f8a3eef5a76fede3e875df332b411990d7685373e9adf6a874e853a0cd
     name: proxysql
@@ -50,7 +76,7 @@ entries:
     version: 1.3.3
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2024-06-03T08:53:58.657621929Z"
+    created: "2024-06-03T15:06:21.92862755Z"
     description: A Helm chart for installing ProxySQL into Kubernetes as a cluster
     digest: d510b5f0ff7e5e6887d1c85f6695a5a0645847939482e0beced27847961d3344
     name: proxysql
@@ -60,7 +86,7 @@ entries:
     version: 1.3.2
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2024-06-03T08:53:58.657078741Z"
+    created: "2024-06-03T15:06:21.928114105Z"
     description: A Helm chart for installing ProxySQL into Kubernetes as a cluster
     digest: 896cdde3b274e7709bc8db4b57339b8892e468fe8e64e6bf7b53e857a8a0d3f5
     name: proxysql
@@ -68,4 +94,4 @@ entries:
     urls:
     - https://medXPS.github.io/helm-charts/proxysql-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-03T08:53:58.652620668Z"
+generated: "2024-06-03T15:06:21.921043314Z"
