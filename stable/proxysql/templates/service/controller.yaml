@@ -13,3 +13,4 @@ spec:
       name: controller
   selector:
     {{- include "proxysql.selectorLabels" . | nindent 4 }}
+# hello

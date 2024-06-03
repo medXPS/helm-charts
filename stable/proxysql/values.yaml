@@ -91,13 +91,13 @@ proxysql:
       {
         hostgroup_id=0 
         hostname="adria-ora-sidb-primary"
-        port=1521/ORCLP1  # Oracle Listener Port
+        port=1521 # Oracle Listener Port
         status="ONLINE"
       },
       {
         hostgroup_id=1 
         hostname="adria-ora-sidb-standby"
-        port=1521/ORCLS1
+        port=1521
         status="ONLINE"
       }
     )
