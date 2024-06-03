@@ -11,11 +11,11 @@ keywords:
   - PostgreSQL
   - Kubernetes
 maintainers:
-  - name: Claudio Poli
-    email: claudio@icorete.ch
-    url: https://github.com/masterkain
-home: https://github.com/icoretech/helm
+  - name: mohamed ammaha
+    email: m.ammaha@outlook.com
+    url: https://github.com/medXPS
+home: https://github.com/medXPS/helm-charts
 sources:
-  - https://github.com/icoretech/helm/tree/main/charts/pgbouncer
+  - https://github.com/medXPS/helm-charts/tree/main/stable/pgbouncer
 annotations:
   artifacthub.io/license: "MIT"
