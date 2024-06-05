@@ -1,7 +1,7 @@
 ## Replica count for Deployment
 ## https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#deploymentspec-v1-apps
 ##
-replicaCount: 2
+replicaCount: 4
 
 ## The update strategy to apply to the Deployment
 ## https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#deploymentstrategy-v1-apps
@@ -43,7 +43,7 @@ image:
 ## https://kubernetes.io/docs/concepts/services-networking/service/
 ##
 service:
-  type: ClusterIP
+  type: NodePort
   port: 5432
 
 ## Labels to add to the pod metadata
