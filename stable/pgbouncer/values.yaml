@@ -151,7 +151,7 @@ config:
   pgbouncer:
     max_client_conn: 10000
     pool_mode: session
-    default_pool_size: 40
+    default_pool_size: 10000
   userlist:
     dev-cih: ;[D/uou2co9-nEcTS(Mj>-5^
 
