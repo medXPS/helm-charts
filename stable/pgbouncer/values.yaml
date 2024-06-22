@@ -1,7 +1,7 @@
 ## Replica count for Deployment
 ## https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#deploymentspec-v1-apps
 ##
-replicaCount: 6
+replicaCount: 3
 
 ## The update strategy to apply to the Deployment
 ## https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#deploymentstrategy-v1-apps
