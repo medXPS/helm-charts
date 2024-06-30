@@ -135,9 +135,20 @@ priorityClassName: ""
 ##
 runtimeClassName: ""
 
+extraEnvs:  #Here we store schemas and passwords  
+  - name: PGB_USER_PASS_dev-cih   # Environment variables
+    valueFrom:
+      secretKeyRef:
+        name: adria-pg-db-pguser-dev-cih  
+        key: password  
+  - name: PGB_USER_PASS_adria-dba
+    valueFrom:
+      secretKeyRef:
+        name: adria-pg-db-pguser-adria-dba
+        key: password
+
 ## PGBouncer Settings
 ##
-
 config:
   adminUser: admin
   adminPassword: "adria"
@@ -146,14 +157,31 @@ config:
   databases:
     cih:
       host: pgpool.pgo-ha.svc.cluster.local
-      
       port: 9999
+      database_user: dev-cih  # Specify user for each database
+    cdm:  # Add other databases
+      host: pgpool.pgo-ha.svc.cluster.local
+      port: 9999
+      database_user: adria-dba
+    sgabs:
+      host: pgpool.pgo-ha.svc.cluster.local
+      port: 9999
+      database_user: adria-dba
+    attijari:
+      host: pgpool.pgo-ha.svc.cluster.local
+      port: 9999
+      database_user: adria-dba
+    bcp:
+      host: pgpool.pgo-ha.svc.cluster.local
+      port: 9999
+      database_user: adria-dba
   pgbouncer:
     max_client_conn: 10000
     pool_mode: session
     default_pool_size: 10000
   userlist:
-    dev-cih: ;[D/uou2co9-nEcTS(Mj>-5^
+    dev-cih:  "$(PGB_USER_PASS_dev-cih | base64 -d)" 
+    adria-dba: "$(PGB_USER_PASS_adria-dba | base64 -d)"
 
 ## Additional containers to be added to the pods
 ##
@@ -189,8 +217,8 @@ extraVolumes: []
 ## PGBouncer Exporter container image and configuration
 ##
 pgbouncerExporter:
-  enabled: false
-  podMonitor: false
+  enabled: true
+  podMonitor: true
   port: 9127
   image:
     registry: ""
