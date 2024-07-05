@@ -135,17 +135,17 @@ priorityClassName: ""
 ##
 runtimeClassName: ""
 
-extraEnvs:  #Here we store schemas and passwords  
-  - name: PGB_USER_PASS_dev-cih   # Environment variables
-    valueFrom:
-      secretKeyRef:
-        name: adria-pg-db-pguser-dev-cih  
-        key: password  
-  - name: PGB_USER_PASS_adria-dba
-    valueFrom:
-      secretKeyRef:
-        name: adria-pg-db-pguser-adria-dba
-        key: password
+# extraEnvs:  #Here we store schemas and passwords  
+#   - name: PGB_USER_PASS_dev-cih   # Environment variables
+#     valueFrom:
+#       secretKeyRef:
+#         name: adria-pg-db-pguser-dev-cih  
+#         key: password  
+#   - name: PGB_USER_PASS_adria-dba
+#     valueFrom:
+#       secretKeyRef:
+#         name: adria-pg-db-pguser-adria-dba
+#         key: password
 
 ## PGBouncer Settings
 ##
@@ -180,8 +180,8 @@ config:
     pool_mode: session
     default_pool_size: 10000
   userlist:
-    dev-cih:  "$(PGB_USER_PASS_dev-cih | base64 -d)" 
-    adria-dba: "$(PGB_USER_PASS_adria-dba | base64 -d)"
+    dev-cih:  "9-g;El:_.<@ILs|p0@?KUiuu" 
+    adria-dba: "adV3,EAKDLWZnSS[I?/qbKQZ"
 
 ## Additional containers to be added to the pods
 ##
