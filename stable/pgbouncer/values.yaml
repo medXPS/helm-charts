@@ -217,8 +217,8 @@ extraVolumes: []
 ## PGBouncer Exporter container image and configuration
 ##
 pgbouncerExporter:
-  enabled: true
-  podMonitor: true
+  enabled: false
+  podMonitor: false
   port: 9127
   image:
     registry: ""
