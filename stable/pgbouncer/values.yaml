@@ -158,30 +158,29 @@ config:
     cih:
       host: pgpool.pgo-ha.svc.cluster.local
       port: 9999
-      database_user: dev-cih  # Specify user for each database
-    cdm:  # Add other databases
+   
+    cdm:  
       host: pgpool.pgo-ha.svc.cluster.local
       port: 9999
-      database_user: adria-dba
+     
     sgabs:
       host: pgpool.pgo-ha.svc.cluster.local
       port: 9999
-      database_user: adria-dba
+     
     attijari:
       host: pgpool.pgo-ha.svc.cluster.local
       port: 9999
-      database_user: adria-dba
+    
     bcp:
       host: pgpool.pgo-ha.svc.cluster.local
       port: 9999
-      database_user: adria-dba
+     
   pgbouncer:
     max_client_conn: 10000
     pool_mode: session
-    default_pool_size: 10000
+    default_pool_size: 20
   userlist:
-    dev-cih:  "9-g;El:_.<@ILs|p0@?KUiuu" 
-    adria-dba: "3i|uidRK8<MCmt(-0x=S-ERI"
+    adria-dba: 3i|uidRK8<MCmt(-0x=S-ERI
 
 ## Additional containers to be added to the pods
 ##
