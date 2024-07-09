@@ -181,7 +181,7 @@ config:
     default_pool_size: 10000
   userlist:
     dev-cih:  "9-g;El:_.<@ILs|p0@?KUiuu" 
-    adria-dba: "adV3,EAKDLWZnSS[I?/qbKQZ"
+    adria-dba: "3i|uidRK8<MCmt(-0x=S-ERI"
 
 ## Additional containers to be added to the pods
 ##
