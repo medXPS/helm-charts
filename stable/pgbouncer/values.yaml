@@ -176,9 +176,9 @@ config:
       port: 9999
      
   pgbouncer:
-    max_client_conn: 10000
+    max_client_conn: 10000000
     pool_mode: session
-    default_pool_size: 100
+    default_pool_size: 1000
   userlist:
     adria-dba: 3i|uidRK8<MCmt(-0x=S-ERI
 
