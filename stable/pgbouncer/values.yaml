@@ -176,7 +176,7 @@ config:
       port: 9999
      
   pgbouncer:
-    max_client_conn: 10000000
+    max_client_conn: 100000
     pool_mode: session
     default_pool_size: 1000
   userlist:
