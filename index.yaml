@@ -5,10 +5,10 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.361872778Z"
+    created: "2024-07-09T16:07:53.619020962Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
-    digest: d23c6cafd188e21674d08fe345e8f3435354962af84f1792969e97a7eef4e2c7
+    digest: 202631882699d1dff6543d01e7c1314efab5ad0589275b4ea31710325e486726
     home: https://github.com/medXPS/helm-charts
     icon: https://icoretech.github.io/helm/charts/pgbouncer/logo.png
     keywords:
@@ -31,7 +31,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.359282748Z"
+    created: "2024-07-09T16:07:53.615295478Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 955f49ff6a60d543a4b5af16518502a23cde41a104389152dba9d1f676f3907f
@@ -57,7 +57,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.356646161Z"
+    created: "2024-07-09T16:07:53.612600392Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: ad93e872b1a4d1608ad30849fdab5193c743f26e64fc58eff25eded8e70e9f51
@@ -83,7 +83,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.353987723Z"
+    created: "2024-07-09T16:07:53.609798515Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 00986bf1280dac1c1900770986e3de8c505352f7bfd0993e64c7138d3d0e20fb
@@ -109,7 +109,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.35127226Z"
+    created: "2024-07-09T16:07:53.607056441Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 27589fc8f444225e93ebf7bf90870cb8cadab463b0fb99a52f1611df7a9cd90f
@@ -135,7 +135,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.347413206Z"
+    created: "2024-07-09T16:07:53.60417171Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 4dc31579d30d2c9603234055b404135bf6a5feed16ab7096a1bd3403840f7d02
@@ -161,7 +161,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.34478275Z"
+    created: "2024-07-09T16:07:53.600457647Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: e9cab2cc7c4bf09be363dcfd4d4071ac156b615a853638f2591ac97c2a748db8
@@ -187,7 +187,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.342102612Z"
+    created: "2024-07-09T16:07:53.597754175Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 1ccc6151c60ba6f2c5bac2b34451c95f87d47d8184c0ff6c0a479c50f911026e
@@ -213,7 +213,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.339407016Z"
+    created: "2024-07-09T16:07:53.595095948Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 55ee4bd66890f7a2523ce03b1f6b5e38c1da4af0abb835cd6912c35d1d10aeea
@@ -239,7 +239,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.335736909Z"
+    created: "2024-07-09T16:07:53.592338636Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 22a5f4254e17a3f32ffc244d8329f4f3dfb8a42aaba4c911f7b9504d08a8bba2
@@ -265,7 +265,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.333052072Z"
+    created: "2024-07-09T16:07:53.588541971Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 37b5b1c8e844a2486f5e1301924df933bee0cbf42da0e723556882d1d530403c
@@ -291,7 +291,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.330430053Z"
+    created: "2024-07-09T16:07:53.585880077Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 67671903185eecb7f4a6bbf2f41f5a33f8e2e6f54bc6f4a1c6e3418dfc794070
@@ -317,7 +317,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.32786558Z"
+    created: "2024-07-09T16:07:53.583291551Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 49ad32f0cdbbd60861f9e3d9d980d377c94c53b43e07a318b8dc83dffc140ad1
@@ -343,7 +343,7 @@ entries:
       artifacthub.io/license: MIT
     apiVersion: v2
     appVersion: 1.22.1
-    created: "2024-07-09T09:19:42.325228864Z"
+    created: "2024-07-09T16:07:53.580692635Z"
     description: A Helm chart for deploying pgBouncer, a PostgreSQL connection pooler,
       on Kubernetes
     digest: 1919764cf0c38ad81709b603e52bb34ab0319c91bd3357e36e6cc98716b35155
@@ -368,9 +368,9 @@ entries:
   proxysql:
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2024-07-09T09:19:42.36543162Z"
+    created: "2024-07-09T16:07:53.622129391Z"
     description: A Helm chart for installing ProxySQL into Kubernetes as a cluster
-    digest: 2e9167f497f049e3ff2042cc03a5d5400b2a183771d5b423da301a117468b1fc
+    digest: c12f41d176958836013c3fc611c0b2e960e3db35b8e3a026c4ba8a8988c249a5
     name: proxysql
     type: application
     urls:
@@ -378,7 +378,7 @@ entries:
     version: 1.3.6
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2024-07-09T09:19:42.364918473Z"
+    created: "2024-07-09T16:07:53.621520832Z"
     description: A Helm chart for installing ProxySQL into Kubernetes as a cluster
     digest: 91642622b4adbe3cc34800ec4555f69bfcca9839592c9220f85f27c3ea299cc4
     name: proxysql
@@ -388,7 +388,7 @@ entries:
     version: 1.3.4
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2024-07-09T09:19:42.364398704Z"
+    created: "2024-07-09T16:07:53.620986171Z"
     description: A Helm chart for installing ProxySQL into Kubernetes as a cluster
     digest: 324bf7f8a3eef5a76fede3e875df332b411990d7685373e9adf6a874e853a0cd
     name: proxysql
@@ -398,7 +398,7 @@ entries:
     version: 1.3.3
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2024-07-09T09:19:42.363550687Z"
+    created: "2024-07-09T16:07:53.620440509Z"
     description: A Helm chart for installing ProxySQL into Kubernetes as a cluster
     digest: d510b5f0ff7e5e6887d1c85f6695a5a0645847939482e0beced27847961d3344
     name: proxysql
@@ -408,7 +408,7 @@ entries:
     version: 1.3.2
   - apiVersion: v2
     appVersion: 2.3.2
-    created: "2024-07-09T09:19:42.362414218Z"
+    created: "2024-07-09T16:07:53.619894377Z"
     description: A Helm chart for installing ProxySQL into Kubernetes as a cluster
     digest: 896cdde3b274e7709bc8db4b57339b8892e468fe8e64e6bf7b53e857a8a0d3f5
     name: proxysql
@@ -416,4 +416,4 @@ entries:
     urls:
     - https://medXPS.github.io/helm-charts/proxysql-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-09T09:19:42.321360241Z"
+generated: "2024-07-09T16:07:53.5767763Z"
