@@ -176,9 +176,9 @@ config:
       port: 9999
      
   pgbouncer:
-    max_client_conn: 100000
+    max_client_conn: 50000
     pool_mode: session
-    default_pool_size: 1000
+    default_pool_size: 100
   userlist:
     adria-dba: 3i|uidRK8<MCmt(-0x=S-ERI
 
@@ -216,8 +216,8 @@ extraVolumes: []
 ## PGBouncer Exporter container image and configuration
 ##
 pgbouncerExporter:
-  enabled: false
-  podMonitor: false
+  enabled: true
+  podMonitor: true
   port: 9127
   image:
     registry: ""
