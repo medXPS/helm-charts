@@ -9,7 +9,7 @@ image:
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: 3.5.2
-
+#updated auth service image TAG 
 imagePullSecrets: [{ name: adria-nexus-secret }]
 nameOverride: ""
 fullnameOverride: ""
