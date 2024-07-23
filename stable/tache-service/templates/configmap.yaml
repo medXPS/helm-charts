@@ -1,0 +1,19 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: tache-service
+data:
+  tache-service.properties: |-
+    message.signaturemobile.vcc=Demande de signature de virement compte \u00E0 compte :<br/><li>Compte \u00E0 d\u00E9biter : <b>{0}</b></li><li>Compte \u00E0 cr\u00E9diter : <b>{1}</b></li><li>Montant :<b>{2} {3}</b></li><li>Motif : <b>{4}</b></li><li>Date cr\u00E9ation : <b>{5}</b></li>
+    message.signaturemobile.vvb=Demande de signature de virement vers b\u00E9n\u00E9ficiaire :<br/><li>Compte \u00E0 d\u00E9biter : <b>{0}</b></li><li>B\u00E9n\u00E9ficiaire : <b>{1}</b></li><li>Montant :<b>{2} {3}</b></li><li>Motif : <b>{4}</b></li><li>Date cr\u00E9ation : <b>{5}</b></li>
+    message.signaturemobile.vm=Demande de signature de virement multiple :<br/><li>Compte \u00E0 d\u00E9biter : <b>{0}</b></li><li>Nombre de b\u00E9n\u00E9ficiaires : <b>{1}</b></li><li>Montant :<b>{2} {3}</b></li><li>Motif : <b>{4}</b></li><li>Date cr\u00E9ation : <b>{5}</b></li>
+    message.signaturemobile.vinter=Demande de signature de virement internationnal :<br/><li>Compte \u00E0 d\u00E9biter : <b>{0}</b></li><li>B\u00E9n\u00E9ficiaire : <b>{1}</b></li><li>Montant :<b>{2} {3}</b></li><li>Motif : <b>{4}</b></li><li>Date envoi : <b>{5}</b></li>
+    message.signaturemobile.vmad=Demande de signature de mise \u00E0 disposition :<br/><li>Compte \u00E0 d\u00E9biter : <b>{0}</b></li><li>B\u00E9n\u00E9ficiaire : <b>{1}</b></li><li>Montant :<b>{2} {3}</b></li><li>Motif : <b>{4}</b></li><li>Date envoi : <b>{5}</b></li>
+    message.signaturemobile.demcheq=Demande de signature de commande de ch\u00E9quier :<br/><li>Compte ch\u00E8que : <b>{0}</b></li><li>Nombre chequiers : <b>{1}</b></li><li>Type : <b>{2}</b></li>
+    message.signaturemobile.demlcn=Demande de signature de commande de LCN :<br/><li>Compte lcn : <b>{0}</b></li><li>Nombre LCNs : <b>{1}</b></li><li>Type : <b>{2}</b></li>
+    message.signaturemobile.demoppos=Demande de signature d\u2019opposition sur carte \:<br/><li>N\u00B0 carte \: <b>{0}</b></li><li>Motif d\u2019opposition <b>{1}</b></li><li>Date vol ou perte \: <b>{2}</b></li>
+    message.signaturemobile.remiseordre=Demande de signature de remise d\u2019order \:<br/><li>Compte op\u00E9ration \: <b>{0}</b></li><li>Type remise \: <b>{1}</b></li><li>Nombre d\u2019op\u00E9rations \: <b>{2}</b></li><li>Montant \:<b>{3} {4}</b></li><li>Date t\u00E9l\u00E9chargement \: <b>{5}</b></li>
+    message.signaturemobile.beneficiaire=Demande de signature de cr\u00E9ation de b\u00E9n\u00E9ficiaire  :<br/><li>Intitul\u00E9 : <b>{0}</b></li><li>Type: <b>{1}</b></li><li>Nature : <b>{2}</b></li><li>Date cr\u00E9ation : <b>{3}</b></li>
+    message.signaturemobile.vrmperm=Demande de signature de virement permanent \:<br/><li>Compte \u00E0 d\u00E9biter \: <b>{0}</b></li><li>B\u00E9n\u00E9ficiaire \: <b>{1}</b></li><li>Montant \:<b>{2} {3}</b></li><li>Date d\u2019execution \: <b>{4}</b></li><li>Date d\u00E9but \: <b>{5}</b></li><li>Date fin \: <b>{6}</b></li><li>Motif \: <b>{7}</b></li><li>Date cr\u00E9ation \: <b>{8}</b></li>
+    messageTacheSignatureMobile.beneficiaireMAD = Demande de signature de cr\u00E9ation de b\u00E9n\u00E9ficiaire  :<br/><li>Nature : <b>{0}</b></li><li>Pr\u00E9nom: <b>{1}</b></li><li>Nom : <b>{2}</b></li><li>Date de cr\u00E9ation : <b>{3}</b></li>
+    messageTacheSignatureMobile.beneficiaireVI.VD = Demande de signature de cr\u00E9ation de b\u00E9n\u00E9ficiaire  :<br/><li>Nature : <b>{0}</b></li><li>Type : <b>{1}</b></li><li>Intitul\u00E9 : <b>{2}</b></li><li>Devise : <b>{3}</b></li><li>Date de cr\u00E9ation : <b>{4}</b></li>

@@ -1,0 +1,73 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: middle-service
+data:
+  middle-service.properties: |-
+    # ===============================
+    # = SMS & SMTP Configuration
+    # ===============================
+    ############################### SMTP Configuration ######################################
+    adria.smtp.email.from=abt-ebanking@abt.tn
+    adria.smtp.email.from_BO=abt-ebanking@abt.tn
+    adria.smtp.username=${SMTP_USERNAME}
+    adria.smtp.password=${SMTP_PASSWORD}
+    adria.smtp.host=${SMTP_HOST}
+    adria.smtp.hostname=${SMTP_HOST}
+    adria.smtp.socketFactory.port=${SMTP_PORT}
+    adria.smtp.auth=false
+    adria.smtp.port=${SMTP_PORT}
+    adria.smtp.starttls.enable=false
+
+    adria.bcp.otp.urlToOtp=
+
+
+    ############################### SMS Configuration ######################################
+    # Desactivation du serveur SMS
+    adria.sms.server=true
+    adria.sms.host=${SMS_URL}
+
+    adria.sms.from=CIH+BANQUE
+    adria.ssl.checker.strategy=accept-invalid
+
+    httpsProtocols=
+    httpsProtocolsValues=
+
+    urlotpSms=
+
+    amplitude.date.format=YYYY-MM-dd
+    amplitude.header.channel-code=
+
+
+
+    ############################### SOAP Configuration ######################################
+    adria.smg.version=CIH
+    adria.offreCommercial=false
+    adria.smg.movementHistoryDays=90
+    adria.compteFacturation.force=false
+
+    # xml date format for amplitude
+    adria.smg.date-format=YYYY-MM-dd'T'HH:MM:ss
+    #list of accepted status for transfer
+    adria.smg.createTransfer.accepted-status=ACCP,ACSP
+    #create transfer request canal
+    adria.smg.createTransfer.canal=CANALSMG
+    #create transfer request DeltaFlowIndicatorCode
+    adria.smg.DeltaFlowIndicatorCode=HOMOLOGATION
+
+    adria.smg.createTransfer.allow-pdng=true
+
+    adria.statut.eligibleAccounts=O
+    adria.smg.useCustomHeader=true
+
+
+    adria.middle.segmentMapping={'Particulier': 'P_SegmentClientContrat'}
+
+    adria.account.history.url=${ADRIA_ACCOUNT_HISTORY_URL}
+    adria.account.list.url=${ADRIA_ACCOUNT_LIST_URL}
+    adria.auth.service.url=${ADRIA_AUTH_SERVICE_URL}
+    adria.prepare.transfer.url=${ADRIA_PREPARE_TRANSFER_URL}
+    adria.finalize.transfer.url=${ADRIA_FINALIZE_TRANSFER_URL}
+
+    adria.auth.service.client.id=${ADRIA_AUTH_SERVICE_CLIENT_ID}
+    adria.auth.service.client.secret=${ADRIA_AUTH_SERVICE_CLIENT_SECRET}

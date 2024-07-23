@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: compte-service
+data:
+  compte-service.properties: |-
+    constant.carte.illimite.constant=100
+    constant.carte.illimite.libelle=label

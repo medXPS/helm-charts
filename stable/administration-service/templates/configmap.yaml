@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: administration-service
+data:
+  administration-service.properties: |-
+    logging.level.org.hibernate.SQL=INFO

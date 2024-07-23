@@ -1,0 +1,27 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: contrat-service
+data:
+  contrat-service.properties: |-
+    #Recaptcha
+    #-- l'url de l'api recaptcha
+    captcha.v3.url=
+    #-- la clé secret
+    captcha.v3.secretKey=
+    #-- la clé du site
+    key.secret.captcha.client=
+    #-- l'adresse Ip du serveur proxy
+    proxy.ip=
+    #-- le port du serveur proxy
+    proxy.port=8013
+    #-- use proxy (y: oui, n: non)
+    useProxy=n
+    #-- authentification proxy (y: oui, n: non)
+    authanticateProxy=n
+    #-- l'utilisateur du serveur proxy (vide si authanticateProxy=n)
+    proxy.user.name=
+    #-- le mot de passe du serveur proxy (vide si authanticateProxy=n)
+    proxy.password=
+    adria.sms.server=true
+    adria.email.server=false

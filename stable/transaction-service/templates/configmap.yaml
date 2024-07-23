@@ -1,0 +1,23 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: transaction-service
+data:
+  transaction-service.properties: |-
+    com.adria.debitCode.vignette=
+    err.tache.action.not.autoriz=Le statut de la transaction a \u00E9volu\u00E9 ! Veuillez consulter votre demande.
+    err.modelVirBeneficiaireMultiDevise.save.c201=Donn\u00E9es invalides. Veuillez v\u00E9rifier le formulaire
+    vide=
+
+    adria.ecomercePayment.url=
+    adria.web.transferFromCardDirectory=
+    adria.ecomercePayment.keyStore=
+    adria.ecomercePayment.automaticDebitStatus=ACTION=POSTAUTH
+    adria.ecomercePayment.clientid=
+    adria.ecomercePayment.storetype=3D_PAY_HOSTING
+    adria.ecomercePayment.tranType=PreAuth
+    adria.ecomercePayment.okUrl=
+    adria.ecomercePayment.failUrl=
+    adria.ecomercePayment.hashAlgorithm=ver3
+    adria.ecomercePayment.callbackUrl=
+

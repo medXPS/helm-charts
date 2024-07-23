@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: moyen-paiement-service
+data:
+  moyen-paiement-service.properties: |-
+    adria.smg.nbrPaiementAnnuel=12
+    adria.smg.tauxAnnuelNominal=10
