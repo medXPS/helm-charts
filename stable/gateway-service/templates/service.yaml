@@ -3,15 +3,16 @@ kind: Service
 metadata:
   
   namespace: {{ .Values.namespace }}
-  name: {{ include "authentification-service.fullname" . }}
+  name: {{ include "gateway-service.fullname" . }}
   labels:
-    {{- include "authentification-service.labels" . | nindent 4 }}
+    {{- include "gateway-service.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
+      nodePort: 32089
       targetPort: http
       protocol: TCP
       name: http
   selector:
-    {{- include "authentification-service.selectorLabels" . | nindent 4 }}
+    {{- include "gateway-service.selectorLabels" . | nindent 4 }}

@@ -1,15 +1,15 @@
-# Default values for authentification-service.
+# Default values for administration-service.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 namespace: default
 replicaCount: 1
 
 image:
-  repository: nexus.adria-bt.digital:5001/abt/authentification-service
+  repository: nexus.adria-bt.digital:5001/abt/gateway-service
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 3.5.2
-#updated auth service image TAG 
+  tag: 3.5.0
+
 imagePullSecrets: [{ name: adria-nexus-secret }]
 nameOverride: ""
 fullnameOverride: ""
@@ -40,8 +40,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 8080
+  type: NodePort
+  port: 9080
 
 ingress:
   enabled: false
@@ -79,17 +79,16 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
+volumes:
+  - configMap:
+      name: adria-common-properties
+    name: adria-common-properties
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+volumeMounts:
+  - name: adria-common-properties
+    mountPath: /kubernetes/config/application.properties
+    subPath: application.properties
 
 nodeSelector: {}
 

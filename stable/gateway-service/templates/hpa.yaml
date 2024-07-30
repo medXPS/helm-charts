@@ -4,14 +4,14 @@ kind: HorizontalPodAutoscaler
 metadata:
   
   namespace: {{ .Values.namespace }}
-  name: {{ include "authentification-service.fullname" . }}
+  name: {{ include "gateway-service.fullname" . }}
   labels:
-    {{- include "authentification-service.labels" . | nindent 4 }}
+    {{- include "gateway-service.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "authentification-service.fullname" . }}
+    name: {{ include "gateway-service.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

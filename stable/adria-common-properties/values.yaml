@@ -1,16 +1,19 @@
-# Default values for authentification-service.
+# Default values for adria-common-properties.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-namespace: default
+namespace: default # Add this line
+
+envFile: ".env.secret"
+
 replicaCount: 1
 
 image:
-  repository: nexus.adria-bt.digital:5001/abt/authentification-service
-  pullPolicy: Always
+  repository: nginx
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 3.5.2
-#updated auth service image TAG 
-imagePullSecrets: [{ name: adria-nexus-secret }]
+  tag: ""
+
+imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
@@ -41,7 +44,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 8080
+  port: 80
 
 ingress:
   enabled: false
