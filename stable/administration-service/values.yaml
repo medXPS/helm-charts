@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: nexus.adria-bt.digital:5001/abt/administration-service
+  repository: nexus.adria-bt.digital:5001/abt/administration-service/changed
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: 3.5.0
